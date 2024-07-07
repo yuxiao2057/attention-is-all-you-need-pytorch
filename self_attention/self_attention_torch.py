@@ -33,7 +33,7 @@ class SelfAttention(nn.Module):
         q = self.linear_q(x)   # Q: batch_size * seq_len * dim_k
         k = self.linear_k(x)   # K: batch_size * seq_len * dim_k
         v = self.linear_v(x)   # V: batch_size * seq_len * dim_v
-        print(f'x.shape:{x.shape} \n  Q.shape:{q.shape} \n  K.shape: {k.shape} \n  V.shape:{v.shape}')
+        print(f'x.shape:{x.shape} \nQ.shape:{q.shape} \nK.shape: {k.shape} \nV.shape:{v.shape}')
         #K^T*Q
         dist = torch.bmm(q, k.transpose(1, 2)) * self._norm_fact
         #归一化获得attention的相关系数：A
